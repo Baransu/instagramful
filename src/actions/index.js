@@ -7,7 +7,14 @@ export const addImage = ({ nick, profileImg, url, link }) => {
     profileImg,
     img: url,
     link,
-    left: Math.floor(Math.random() * (window.innerWidth - 200)),
-    top: Math.floor(Math.random() * (window.innerHeight - 200)),
+    left: Math.floor(Math.random() * (window.innerWidth - 150)),
+    top: Math.floor(Math.random() * (window.innerHeight - 150)),
+  }
+}
+
+export const removeLastImage = (size) => {
+  return {
+    type: 'TRUNCAT',
+    size
   }
 }

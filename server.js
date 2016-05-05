@@ -37,13 +37,14 @@ io.on('connection', function(socket){
   console.log('a user connected');
 
   socket.pastImages = [];
+
   init(startInstaCalls);
 
   socket.interval = setInterval(function() {
     if(imagesQueue.length) {
       var img = imagesQueue.shift();
       if(!socket.pastImages.find(i => i == img.id)) {
-        io.sockets.emit('images', img);
+        socket.emit('images', img);
         socket.pastImages.push(img.id);
       }
     } else {
@@ -142,7 +143,7 @@ function addUser(name) {
 
 function startInstaCalls() {
   async.forEachOf(currentUsers, function (user, key, callback) {
-    console.log('instaCall for: ', user)
+    // console.log('instaCall for: ', user)
     instaCall(user);
   }, function (err) {
     if(err) {

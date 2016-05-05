@@ -19,10 +19,15 @@ const image = (state, action) => {
 const images = (state = [], action) => {
   switch (action.type) {
     case 'ADD_IMAGE':
-      return [
-        ...state,
-        image(undefined, action)
-      ]
+      return [ ...state, image(undefined, action)]
+    case 'TRUNCAT':
+      if(state.length >= action.size) {
+        const index = 1;
+        return state
+          .splice(0, index)
+          .concat(state.splice(index + 1));
+      }
+      return state;
     default:
       return state;
   }
