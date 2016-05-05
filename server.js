@@ -39,7 +39,7 @@ io.on('connection', function(socket){
   socket.pastImages = [];
   init(startInstaCalls);
 
-  setInterval(function() {
+  socket.interval = setInterval(function() {
     if(imagesQueue.length) {
       var img = imagesQueue.shift();
       if(!socket.pastImages.find(i => i == img.id)) {
@@ -53,6 +53,10 @@ io.on('connection', function(socket){
 
   socket.on('new-user', function(user){
     validInstaCall(user);
+  });
+
+  socket.on('disconnect', function () {
+    clearInterval(socket.interval);
   });
 
 });
