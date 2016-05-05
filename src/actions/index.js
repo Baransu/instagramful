@@ -1,24 +1,13 @@
-let nextTodoId = 0;
+import uuid from 'uuid';
 
-// list fo all posible actions
-export const addTodo = (text) => {
+export const addImage = ({ nick, profileImg, url, link }) => {
   return {
-    type: 'ADD_TODO',
-    id: nextTodoId++,
-    text
-  }
-}
-
-export const setVisibilityFilter = (filter) => {
-  return {
-    type: 'SET_VISIBILITY_FILTER',
-    filter
-  }
-}
-
-export const toggleTodo = (id) => {
-  return {
-    type: 'TOGGLE_TODO',
-    id
+    type: 'ADD_IMAGE',
+    nick,
+    profileImg,
+    img: url,
+    link,
+    left: Math.floor(Math.random() * (window.innerWidth - 200)),
+    top: Math.floor(Math.random() * (window.innerHeight - 200)),
   }
 }

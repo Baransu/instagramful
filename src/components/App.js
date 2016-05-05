@@ -1,14 +1,15 @@
 import React from 'react'
-import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import Header from './Header'
+import VisibleImagesList from '../containers/VisibleImagesList'
+// import MapComponent from './MapComponent'
 
-const App = () => (
-  <div>
-    <AddTodo />
-    <VisibleTodoList />
-    <Footer />
-  </div>
-)
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <VisibleImagesList />
+    </div>
+  )
+}
 
 export default App

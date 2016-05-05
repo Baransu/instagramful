@@ -6,15 +6,18 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import todoApp from './reducers';
+import instagramfulApp from './reducers';
 import App from './components/App';
 
-// init sotre
-let store = createStore(todoApp);
+import createApp from './createApp';
 
-// init react components
+// init sotre
+const store = createStore(instagramfulApp);
+
+createApp(store);
+
 ReactDOM.render(
-    // provide store to every signed child component
+    // provide store to child components
   <Provider store={store}>
     <App />
   </Provider>,
