@@ -43,6 +43,7 @@ io.on('connection', function(socket){
   socket.interval = setInterval(function() {
     if(imagesQueue.length) {
       var img = imagesQueue.shift();
+      shuffle(imagesQueue);
       if(!socket.pastImages.find(i => i == img.id)) {
         socket.emit('images', img);
         socket.pastImages.push(img.id);
