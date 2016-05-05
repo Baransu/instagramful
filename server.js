@@ -9,6 +9,8 @@ const mongoose = require('mongoose');
 const async = require('async');
 const uuid = require('uuid');
 
+var port = process.env.PORT || 3000
+
 // MODELS
 const User = require('./models/user.js');
 
@@ -21,9 +23,9 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-httpApp.listen(3000, function(){
+httpApp.listen(port, function(){
   // TODO more use full log?
-  console.log('listening on *:3000');
+  console.log('listening on *:', port);
 });
 
 mongoose.connect('mongodb://admin:admin@ds015902.mlab.com:15902/instagramful', function (error) {
