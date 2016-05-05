@@ -97,7 +97,7 @@ function instaCall(user) {
 
 function validInstaCall(user) {
   client.get("https://www.instagram.com/" + user + "/media/", function(data, res){
-    if(data.status == 'ok') {
+    if(data.status == 'ok' && data.items.length) {
       instaCall(user);
       addUser(user);
     }
