@@ -58,7 +58,6 @@ io.on('connection', function(socket){
   socket.on('disconnect', function () {
     clearInterval(socket.interval);
   });
-
 });
 
 var baseUsers = [
